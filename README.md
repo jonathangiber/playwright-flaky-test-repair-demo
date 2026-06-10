@@ -12,15 +12,15 @@ Measured locally on `2026-06-10` with 20 full runs per suite.
 
 | Suite | 20-run pass rate | Longest green streak | Median run time | Time to first failure |
 | --- | --- | --- | --- | --- |
-| `before/checkout.spec.ts` | `13 / 20` (65.0%) | `4` | `1.92s` | `1.79s` |
-| `after/checkout.spec.ts` | `20 / 20` (100.0%) | `20` | `1.89s` | not observed across the 20-run sample |
+| `before/checkout.spec.ts` | `17 / 20` (85.0%) | `11` | `1.91s` | `12.93s` |
+| `after/checkout.spec.ts` | `20 / 20` (100.0%) | `20` | `1.87s` | not observed across the 20-run sample |
 
 Diagnosis signal matters too: the `before` project has no trace configured, while the `after` project keeps Playwright traces on the first CI retry so a future failure comes with a reproducible artifact.
 
-The CI workflow stays green by proving both sides:
+The CI workflow keeps the required gate on the stabilized suite:
 
-- `prove-before` repeats the flaky suite and fails the workflow unless it observes both passing and failing runs.
 - `prove-after` repeats the stabilized suite and fails the workflow if any run flakes.
+- `prove-before` is an allowed-failure demonstration job, so the public badge does not become flaky just because the intentionally flaky suite happened to pass or fail too consistently in one CI sample.
 
 ## Fix patterns
 

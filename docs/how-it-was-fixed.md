@@ -35,7 +35,7 @@ await expect(page.getByTestId("order-total")).toHaveText("$144.00");
 
 5. Keep the proof public.
 
-The CI workflow does two things:
+The CI workflow does two things without making the badge flaky:
 
-- repeats the `before` suite until it proves the suite is genuinely flaky by observing both passes and failures
-- repeats the `after` suite until it proves the stabilized version stays green
+- repeats the `after` suite as the required gate, failing the workflow if the stabilized version flakes
+- repeats the `before` suite as an allowed-failure demonstration, because an intentionally flaky suite should not control the green badge
