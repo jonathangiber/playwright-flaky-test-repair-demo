@@ -1,0 +1,27 @@
+{
+  "name": "playwright-flaky-test-repair-demo",
+  "version": "1.0.0",
+  "description": "A real before/after demo of diagnosing and stabilizing a flaky Playwright checkout flow.",
+  "type": "module",
+  "scripts": {
+    "start": "node app/server.mjs",
+    "test:before": "playwright test --project=before",
+    "test:after": "playwright test --project=after",
+    "measure:before": "node scripts/measure.mjs --project before --runs 20",
+    "measure:after": "node scripts/measure.mjs --project after --runs 20",
+    "measure": "npm run measure:before && npm run measure:after",
+    "ci:prove-before": "node scripts/prove-before.mjs",
+    "ci:prove-after": "node scripts/prove-after.mjs"
+  },
+  "keywords": [
+    "playwright",
+    "qa",
+    "flaky-tests",
+    "browser-automation"
+  ],
+  "author": "Jonathan Giber",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

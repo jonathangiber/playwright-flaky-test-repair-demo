@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="product-card">
+        <p class="eyebrow">Public flaky checkout demo</p>
+        <h1>Portable monitor</h1>
+        <p class="lede">
+          A tiny checkout flow with intentionally jittery UI updates so the test behavior is real.
+        </p>
+        <p class="price">$129.00</p>
+        <button class="btn btn-primary add-to-cart" data-testid="add-to-cart" type="button">
+          Add monitor to cart
+        </button>
+      </section>
+
+      <section class="checkout-panel">
+        <div class="summary">
+          <div class="summary-row">
+            <span>Items in cart</span>
+            <strong class="value cart-count" data-testid="cart-count">0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong class="value subtotal" data-testid="subtotal">$0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong class="value shipping-cost" data-testid="shipping-cost">$0.00</strong>
+          </div>
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <strong class="value order-total" data-testid="order-total">$0.00</strong>
+          </div>
+        </div>
+
+        <div class="shipping-options" data-testid="shipping-options">
+          <p class="section-title">Shipping</p>
+          <button class="shipping-option" data-testid="shipping-standard" data-shipping="standard" type="button">
+            Standard (free)
+          </button>
+          <button class="shipping-option" data-testid="shipping-express" data-shipping="express" type="button">
+            Express (+$15)
+          </button>
+        </div>
+
+        <button class="btn place-order" data-testid="place-order" type="button">
+          Place order
+        </button>
+
+        <div class="status-banner" data-testid="order-status" role="status">
+          Cart is empty
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
